@@ -1,0 +1,50 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:vw="clr-namespace:RentalBilling.Views"
+		xmlns:vm="clr-namespace:RentalBilling.ViewModels"
+		mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="RentalBilling.MainWindow"
+        Title="RentalBilling">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*" MaxWidth="200"/>
+			<ColumnDefinition Width="3*"/>
+		</Grid.ColumnDefinitions>
+		<StackPanel Grid.Column="0" Margin="10">
+			<StackPanel Margin="0 0 0 10" HorizontalAlignment="Center">
+				<TextBlock Text="Weh?!" FontSize="20" FontWeight="Black"/>
+				<TextBlock Text="di nga.. Inc." FontSize="12"/>
+			</StackPanel>
+			<Button 
+				HorizontalAlignment="Stretch"
+				HorizontalContentAlignment="Center"
+				Command="{Binding DashBoardCommand}">Dashboard</Button>
+			<Button 
+				HorizontalAlignment="Stretch"
+				HorizontalContentAlignment="Center"
+				Command="{Binding RentalsCommand}">Rentals</Button>
+			<Button
+				HorizontalAlignment="Stretch"
+				HorizontalContentAlignment="Center"
+				Command="{Binding RentalsCommand}">Payments</Button>
+			<Button
+				HorizontalAlignment="Stretch"
+				HorizontalContentAlignment="Center"
+				Command="{Binding RentalsCommand}">Reports</Button>
+		</StackPanel>
+		<StackPanel Grid.Column="2">
+			<ContentControl Content="{Binding CurrentViewModel}">
+				<ContentControl.DataTemplates>
+					<DataTemplate DataType="vm:DashboardViewModel">
+						<vw:Dashboard/>
+					</DataTemplate>
+					<DataTemplate DataType="vm:RentalsViewModel">
+						<vw:Rentals/>
+					</DataTemplate>
+				</ContentControl.DataTemplates>
+			</ContentControl>
+		</StackPanel>
+	</Grid>
+</Window>
