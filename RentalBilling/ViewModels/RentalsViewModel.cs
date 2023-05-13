@@ -10,11 +10,13 @@ public partial class RentalsViewModel:ViewModelBase
 {
     public RentalsViewModel()
     {
-        TenantRentals = new ObservableCollection<Tenant>();
-        TenantRentals.Add(new Tenant() { Id = Guid.NewGuid(), Name = "Foobar 1",Status = true});
-        TenantRentals.Add(new Tenant() { Id = Guid.NewGuid(), Name = "Foobar 2", Status = true });
-        TenantRentals.Add(new Tenant() { Id = Guid.NewGuid(), Name = "Foobar 3", Status = true });
-        TenantRentals.Add(new Tenant() { Id = Guid.NewGuid(), Name = "Foobar 4", Status = true });
+        TenantRentals = new ObservableCollection<Tenant>
+        {
+            new Tenant() { Id = Guid.NewGuid(), Name = "Foobar 1", Status = true },
+            new Tenant() { Id = Guid.NewGuid(), Name = "Foobar 2", Status = true },
+            new Tenant() { Id = Guid.NewGuid(), Name = "Foobar 3", Status = true },
+            new Tenant() { Id = Guid.NewGuid(), Name = "Foobar 4", Status = true }
+        };
     }
     [ObservableProperty]
     private string _pageTitle = "Rentals";

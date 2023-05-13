@@ -1,0 +1,52 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:vm="using:RentalBilling.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="RentalBilling.Views.Payments">
+	<Design.DataContext>
+		<vm:PaymentsViewModel/>
+	</Design.DataContext>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="auto"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="auto"/>
+		</Grid.RowDefinitions>
+		<TextBlock Text="{Binding PageTitle}"></TextBlock>
+		<DataGrid 
+			Grid.Row="1"
+			AutoGenerateColumns="False"
+			Name="MyDataGrid" Items="{Binding Payments}"
+			SelectedItem="{Binding SelectedPayment}">
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+				<DataGridTextColumn Header="RentId" Binding="{Binding RentId}"/>
+				<DataGridTextColumn Header="Amount" Binding="{Binding Amount}"/>
+				<DataGridTemplateColumn Header="" Width="100">
+					<DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<StackPanel>
+								<Button 
+									Command="{Binding UpdateCommand}"
+									CommandParameter="{Binding SelectedPayment}">
+									Update
+								</Button>
+							</StackPanel>
+						</DataTemplate>
+					</DataGridTemplateColumn.CellTemplate>
+				</DataGridTemplateColumn>
+			</DataGrid.Columns>
+		</DataGrid>
+		<StackPanel Grid.Row="2">
+			<TextBlock Text="{Binding SelectedPayment.RentId}" Grid.Row="2"/>
+			<Button
+						Command="{Binding UpdateCommand}"
+						CommandParameter="{Binding SelectedPayment}">
+				Update
+			</Button>
+		</StackPanel>
+		
+	</Grid>
+</UserControl>
