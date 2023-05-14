@@ -14,6 +14,8 @@ public partial class MainViewModel:ViewModelBase,IRecipient<NavMessage>
     private string _pageTitle = string.Empty;
     [ObservableProperty]
     private ViewModelBase? _currentViewModel;
+    [ObservableProperty]
+    private ViewModelBase[]? _viewModels;
     [RelayCommand]
     public void DashBoard()
     {

@@ -17,7 +17,15 @@ namespace RentalBilling
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
                 desktop.MainWindow = new MainWindow();
-                desktop.MainWindow.DataContext = new MainViewModel();
+                desktop.MainWindow.DataContext = new MainViewModel() {
+                    ViewModels = new ViewModelBase[]
+                    {
+                        new DashboardViewModel(),
+                        new ReportsViewModel(),
+                        new PaymentsViewModel(),
+                        new RentalsViewModel()
+                    }
+                };
             }
 
             base.OnFrameworkInitializationCompleted();

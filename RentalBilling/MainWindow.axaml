@@ -10,47 +10,32 @@
 	<Design.DataContext>
 		<vm:MainViewModel/>
 	</Design.DataContext>
-	<!-- <Window.Styles>
-		<Style Selector="RadioButton.Nav" >
-			<Setter Property="FontSize" Value="6"/>
-			<Setter Property="FontWeight" Value="Bold"/>			
-			<Setter Property="BorderBrush" Value="Black"/>
-			<Setter Property="Margin" Value="5 5 5 0"/>
-			<Setter Property="Template" >
-				<Setter.Value>
-					<ControlTemplate TargetType="{x:Type RadioButton}">
-						<ControlTemplate.Content>
-							<Border
-                            Height="{TemplateBinding Height}"
-                            CornerRadius="12"
-                            Width="180"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}">
-								<ContentPresenter
-									VerticalAlignment="Center"
-									HorizontalAlignment="Center"/>
-							</Border>
-						</ControlTemplate.Content>
-					</ControlTemplate>
-				</Setter.Value>
-			</Setter>
-		</Style>
-		<Style Selector="RadioButton.Nav:checked">
-			<Setter Property="FontSize" Value="18"/>
-			<Setter Property="FontWeight" Value="Bold"/>
-			<Setter Property="BorderBrush" Value="Red"/>
-			<Setter Property="BorderThickness" Value="2"/>
-			<Setter Property="Margin" Value="5 5 5 0"/>
-		</Style>
-	</Window.Styles> -->
 	<Grid>
-		<TabControl x:Name="TabControl" Classes="sidebar" Margin="0 40 0 20">
-				<TabItem Header="Dashboard">
-					<vw:Dashboard/>
-				</TabItem>
-				<TabItem Header="Rentals"></TabItem>
-				<TabItem Header="Payments"></TabItem>
-				<TabItem Header="Reports"></TabItem>
+		<TabControl 
+      Items="{Binding ViewModels}"
+      Classes="sidebar" Margin="0 40 0 20">
+      <TabControl.ItemTemplate>
+        <DataTemplate>
+          <TextBlock Text="{Binding PageTitle}" />
+        </DataTemplate>
+      </TabControl.ItemTemplate>
+      <TabControl.ContentTemplate >
+        <DataTemplate>
+          <ContentControl Content="{Binding}">
+            <ContentControl.DataTemplates>
+              <DataTemplate DataType="vm:DashboardViewModel">
+                <vw:Dashboard/>
+              </DataTemplate>
+              <DataTemplate DataType="vm:RentalsViewModel">
+                <vw:Rentals/>
+              </DataTemplate>
+              <DataTemplate DataType="vm:PaymentsViewModel">
+                <vw:Payments/>
+              </DataTemplate>
+            </ContentControl.DataTemplates>
+          </ContentControl>
+        </DataTemplate>
+      </TabControl.ContentTemplate>
 			</TabControl>
 			<!-- <RadioButton
 				Classes="Nav"

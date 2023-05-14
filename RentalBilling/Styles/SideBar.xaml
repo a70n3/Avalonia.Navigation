@@ -65,7 +65,9 @@
     <Setter Property="IsVisible" Value="False" />
   </Style>
   <Style Selector="TabControl.sidebar > TabItem:selected">
-    <Setter Property="Background" Value="red"/>
+    <Setter Property="BorderBrush" Value="Green"/>
+    <Setter Property="BorderThickness" Value="4 1 1 1"/>
+    <Setter Property="CornerRadius" Value="1"/>
   </Style>
 
   <Style Selector="TabControl.sidebar > TabItem:pointerover /template/ Border#PART_LayoutRoot">
