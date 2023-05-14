@@ -10,7 +10,7 @@
 	<Design.DataContext>
 		<vm:MainViewModel/>
 	</Design.DataContext>
-	<Window.Styles>
+	<!-- <Window.Styles>
 		<Style Selector="RadioButton.Nav" >
 			<Setter Property="FontSize" Value="6"/>
 			<Setter Property="FontWeight" Value="Bold"/>			
@@ -42,18 +42,17 @@
 			<Setter Property="BorderThickness" Value="2"/>
 			<Setter Property="Margin" Value="5 5 5 0"/>
 		</Style>
-	</Window.Styles>
+	</Window.Styles> -->
 	<Grid>
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="*" MaxWidth="200"/>
-			<ColumnDefinition Width="3*"/>
-		</Grid.ColumnDefinitions>
-		<StackPanel Grid.Column="0" Margin="10">
-			<StackPanel Margin="0 0 0 10" HorizontalAlignment="Center">
-				<TextBlock Text="Weh?!" FontSize="20" FontWeight="Black"/>
-				<TextBlock Text="di nga.. Inc." FontSize="12"/>
-			</StackPanel>
-			<RadioButton
+		<TabControl x:Name="TabControl" Classes="sidebar" Margin="0 40 0 20">
+				<TabItem Header="Dashboard">
+					<vw:Dashboard/>
+				</TabItem>
+				<TabItem Header="Rentals"></TabItem>
+				<TabItem Header="Payments"></TabItem>
+				<TabItem Header="Reports"></TabItem>
+			</TabControl>
+			<!-- <RadioButton
 				Classes="Nav"
 				Content="Dashboard"
 				HorizontalAlignment="Stretch"
@@ -61,39 +60,26 @@
 				Command="{Binding DashBoardCommand}">
 			</RadioButton>
 			<RadioButton
-				
+				Classes="Nav"
 				Content="Rentals"
 				HorizontalAlignment="Stretch"
 				HorizontalContentAlignment="Center"
 				Command="{Binding RentalsCommand}">
 			</RadioButton>
 			<RadioButton
+				Classes="Nav"
 				Content="Payments"
 				HorizontalAlignment="Stretch"
 				HorizontalContentAlignment="Center"
 				Command="{Binding PaymentsCommand}">
 			</RadioButton>
 			<RadioButton
+				Classes="Nav"
 				Content="Reports"
 				HorizontalAlignment="Stretch"
 				HorizontalContentAlignment="Center"
 				Command="{Binding ReportsCommand}">
-			</RadioButton>
-		</StackPanel>
-		<StackPanel Grid.Column="2">
-			<ContentControl Content="{Binding CurrentViewModel}">
-				<ContentControl.DataTemplates>
-					<DataTemplate DataType="vm:DashboardViewModel">
-						<vw:Dashboard/>
-					</DataTemplate>
-					<DataTemplate DataType="vm:RentalsViewModel">
-						<vw:Rentals/>
-					</DataTemplate>
-					<DataTemplate DataType="vm:PaymentsViewModel">
-						<vw:Payments/>
-					</DataTemplate>
-				</ContentControl.DataTemplates>
-			</ContentControl>
-		</StackPanel>
+			</RadioButton> -->
+		
 	</Grid>
 </Window>
