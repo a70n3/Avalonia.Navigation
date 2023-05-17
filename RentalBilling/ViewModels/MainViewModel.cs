@@ -16,28 +16,10 @@ public partial class MainViewModel:ViewModelBase,IRecipient<NavMessage>
     private ViewModelBase? _currentViewModel;
     [ObservableProperty]
     private ViewModelBase[]? _viewModels;
-    [RelayCommand]
-    public void DashBoard()
-    {
-        CurrentViewModel = new DashboardViewModel();
-    }
-    [RelayCommand]
-    public void Rentals()
-    {
-        CurrentViewModel = new RentalsViewModel();
-    }
-    [RelayCommand]
-    public void Payments()
-    {
-        CurrentViewModel = new PaymentsViewModel();
-    }
-    [RelayCommand]
-    public void Reports()
-    {
-        CurrentViewModel = new ReportsViewModel();
-    }
+    [ObservableProperty]
+    private Nav _selectedPageIndex;
     public void Receive(NavMessage message)
     {
-        CurrentViewModel = new DashboardViewModel();
+        SelectedPageIndex = message.Value;
     }
 }

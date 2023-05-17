@@ -22,11 +22,10 @@ public partial class RentalsViewModel:ViewModelBase
     private string _pageTitle = "Rentals";
     [ObservableProperty]
     private ObservableCollection<Tenant>? _tenantRentals;
-    [ObservableProperty]
-    private Tenant _tenantRent;
+    
     [RelayCommand]
     public void Return()
     {
-        WeakReferenceMessenger.Default.Send(new NavMessage("Dashboard"));
+        WeakReferenceMessenger.Default.Send(new NavMessage(Nav.DASHBOARD));
     }
 }

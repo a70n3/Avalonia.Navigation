@@ -11,60 +11,35 @@
 		<vm:MainViewModel/>
 	</Design.DataContext>
 	<Grid>
-		<TabControl 
+		<TabControl
       Items="{Binding ViewModels}"
-      Classes="sidebar" Margin="0 40 0 20">
-      <TabControl.ItemTemplate>
-        <DataTemplate>
-          <TextBlock Text="{Binding PageTitle}" />
-        </DataTemplate>
-      </TabControl.ItemTemplate>
-      <TabControl.ContentTemplate >
-        <DataTemplate>
-          <ContentControl Content="{Binding}">
-            <ContentControl.DataTemplates>
-              <DataTemplate DataType="vm:DashboardViewModel">
-                <vw:Dashboard/>
-              </DataTemplate>
-              <DataTemplate DataType="vm:RentalsViewModel">
-                <vw:Rentals/>
-              </DataTemplate>
-              <DataTemplate DataType="vm:PaymentsViewModel">
-                <vw:Payments/>
-              </DataTemplate>
-            </ContentControl.DataTemplates>
-          </ContentControl>
-        </DataTemplate>
-      </TabControl.ContentTemplate>
-			</TabControl>
-			<!-- <RadioButton
-				Classes="Nav"
-				Content="Dashboard"
-				HorizontalAlignment="Stretch"
-				HorizontalContentAlignment="Center"
-				Command="{Binding DashBoardCommand}">
-			</RadioButton>
-			<RadioButton
-				Classes="Nav"
-				Content="Rentals"
-				HorizontalAlignment="Stretch"
-				HorizontalContentAlignment="Center"
-				Command="{Binding RentalsCommand}">
-			</RadioButton>
-			<RadioButton
-				Classes="Nav"
-				Content="Payments"
-				HorizontalAlignment="Stretch"
-				HorizontalContentAlignment="Center"
-				Command="{Binding PaymentsCommand}">
-			</RadioButton>
-			<RadioButton
-				Classes="Nav"
-				Content="Reports"
-				HorizontalAlignment="Stretch"
-				HorizontalContentAlignment="Center"
-				Command="{Binding ReportsCommand}">
-			</RadioButton> -->
-		
+      Classes="sidebar" Margin="0 40 0 20" 
+	  SelectedIndex="{Binding SelectedPageIndex}">
+			<TabControl.ItemTemplate>
+				<DataTemplate>
+					<TextBlock Text="{Binding PageTitle}" />
+				</DataTemplate>
+			</TabControl.ItemTemplate>
+			<TabControl.ContentTemplate >
+				<DataTemplate>
+					<ContentControl Content="{Binding}">
+						<ContentControl.DataTemplates>
+							<DataTemplate DataType="vm:DashboardViewModel">
+								<vw:Dashboard/>
+							</DataTemplate>
+							<DataTemplate DataType="vm:RentalsViewModel">
+								<vw:Rentals/>
+							</DataTemplate>
+							<DataTemplate DataType="vm:PaymentsViewModel">
+								<vw:Payments/>
+							</DataTemplate>
+							<DataTemplate DataType="vm:ReportsViewModel">
+								<vw:Reports/>
+							</DataTemplate>
+						</ContentControl.DataTemplates>
+					</ContentControl>
+				</DataTemplate>
+			</TabControl.ContentTemplate>
+		</TabControl>
 	</Grid>
 </Window>
